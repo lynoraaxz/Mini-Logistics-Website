@@ -18,10 +18,10 @@
 
         if (res.ok && data.success) {
           setTimeout(() => {
-          window.location.href = "index.html";
+          window.location.href = "dashboard.html";
           }, 800);
           localStorage.setItem("user", JSON.stringify(data.user));
-          window.location.href = "index.html";
+          window.location.href = "dashboard.html";
 
         } else {
           msg.textContent = "❌ " + (data.message || "Something went wrong");

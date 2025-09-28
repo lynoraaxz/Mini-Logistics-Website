@@ -1,158 +1,54 @@
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logistics Dashboard</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-<body class="bg-dark">
-    <header class="d-flex justify-content-between bg-white align-items-center px-3">
-        <div class="account-hamburger">
-            <nav class="navbar bg-body-tertiary">
-                <div class="d-flex justify-content-between align-items-center">
-                    <button class="navbar-toggler border-0" type="button" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#accountPanel">
-                        <i class="fs-2 bi-person-circle text-dark"></i>
-                    </button>
-                    <div class="offcanvas offcanvas-start" tabindex="-1" id="accountPanel" style="width: 40%;">
-                        <div class="offcanvas-header">
-                            <h5 class="offcanvas-title">Profile</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <div class="text-center mb-4">
-                                <h4 class="mt-2 profileName"></h4>
-                                <small class="text-muted profilePosition"></small>
-                            </div>
+  
+    <style>
+      .add-account:hover {
+        color: rgb(56, 56, 56) !important;
+      }
 
-                            <ul class="list-group mb-3">
-                                <li class="list-group-item"><strong>Name: </strong><span class="profileName"></span></li>
-                                <li class="list-group-item"><strong>Username: </strong><span class="profileUsername"></span></li>
-                                <li class="list-group-item"><strong>Position: </strong><span class="profilePosition"></span></li>
-                            </ul>
+      label h6 {
+        width: 120px;
+      }
 
-                            <!-- Actions -->
-                            <div class="d-grid gap-2">
-                                <a href="login.html" class="btn btn-dark">Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+      label input {
+        align-items: end !important;
+      }
+
+    </style>
+  </head>
+  <body class="justify-content-center text-center align-items-center d-flex bg-secondary bg-opacity-75">
+    <div>
+      <h1 class="display-5 fw-bold text-black">Welcome, let me know you!</h1>
+
+      <form id="loginForm" class="mt-5">
+        <div class="d-grid gap-3">
+          <label class="fw-bold d-flex align-items-center justify-content-center">
+            <h6 class="fw-bold">Username:</h6>
+            <input type="text" id="username" class="ms-1" required>
+          </label>
+          <label class="fw-bold d-flex align-items-center justify-content-center">
+            <h6 class="fw-bold">Password:</h6>
+            <input type="password" id="password" class="ms-2" required>
+          </label>
         </div>
+        <button type="submit" class="mt-4 px-4 py-1 fw-bold rounded-3">Login</button>
+      </form>
 
-        <div>
-            <h3 id="welcome"></h3>
-        </div>
+      <p id="message"></p>
 
-        <div class="features-hamburger text-end">
-            <nav class="navbar bg-body-tertiary">
-                <div class="d-flex justify-content-between align-items-center">
-                    <button class="navbar-toggler ms-auto border-0" type="button" data-bs-toggle="collapse" data-bs-target="#features-hamburger" aria-controls="features-hamburger" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="bi bi-search text-dark fs-2"></i>
-                    </button>
+      <div>
+        <a href="addAccount.html" class="add-account text-black">
+          <h5 class="add-account text-black fw-bold">Add another account</h5>
+        </a>
+      </div>
 
-                    <div class="collapse navbar-collapse dropdown-collapse-right justify-content-end" id="features-hamburger">
-                        <div class="navbar-nav d-flex gap-2 mt-3">
-                            <a class="navbar-toggler border-0 text-decoration-none fw-bold pb-1" type="button" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#shipmentPanel">Shipments</a>
-                            
-                            <div class="offcanvas offcanvas-end" tabindex="-1" id="shipmentPanel" style="width: 50%;">
-                                <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title">📦 Shipments</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                                </div>
-
-                                <div class="offcanvas-body">
-                                    <!-- Shipments Table -->
-                                    <div class="table-responsive">
-                                    <table class="table table-striped table-hover">
-                                        <thead class="table-dark">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Date</th>
-                                            <th>Type</th>
-                                            <th>Partner</th>
-                                            <th>Item</th>
-                                            <th>Qty</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="shipmentTable"></tbody>
-                                    </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="navbar-toggler border-0 text-decoration-none fw-bold py-2" type="button" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#supplierPanel">Suppliers</a>
-
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="supplierPanel" style="width: 50%;">
-                                <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title">🏭 Suppliers</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                                </div>
-
-                                <div class="offcanvas-body">
-                                    <div class="table-responsive">
-                                    <table class="table table-striped table-hover">
-                                        <thead class="table-dark">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Contact</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="supplierTable"></tbody>
-                                    </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="navbar-toggler border-0 text-decoration-none fw-bold pt-1 pb-4" type="button" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#custPanel">Customers</a>
-
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="custPanel" style="width: 50%;">
-                                <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title">🏭 Customers</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                                </div>
-
-                                <div class="offcanvas-body">
-                                    <div class="table-responsive">
-                                    <table class="table table-striped table-hover">
-                                        <thead class="table-dark">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Contact</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="custTable"></tbody>
-                                    </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    
-    <div class="container d-flex justify-content-center min-vh-100">
-        <div class="w-100" style="max-width: 700px;">
-            <h3 class="mb-3 text-center">Stock Movement Overview</h3>
-            <div class="card shadow-sm p-3" style="background-color: transparent !important;">
-                <canvas id="stockChart"></canvas>
-            </div>
-        </div>  
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="chart.js"></script>
-    <script src="index.js"></script>
+
+    <script src="login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>
