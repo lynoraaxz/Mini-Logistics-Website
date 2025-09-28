@@ -1,0 +1,29 @@
+.dropdown-collapse-left {
+  position: absolute;
+  top: 3.4rem; 
+  background: #fff;
+  border: 1px solid #ffffff;
+  left: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom-right-radius: 10px;
+}
+
+.dropdown-collapse-right {
+  position: absolute;
+  top: 3.4rem; 
+  background: #fff;
+  border: 1px solid #ffffff;
+  right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom-left-radius: 10px;
+}
+
+#features-hamburger .navbar-toggler:hover {
+  color: rgb(29, 29, 29) !important;
+}
+
+body {
+  overflow: hidden;
+}
