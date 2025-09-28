@@ -18,7 +18,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     const data = await res.json();
     if (res.ok) {
       alert("Account created successfully!");
-      window.location.href = "login.html"; // redirect ke login page
+      window.location.href = "index.html"; // redirect ke login page
     } else {
       alert(data.message || "Failed to register");
     }

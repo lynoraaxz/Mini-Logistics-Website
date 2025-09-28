@@ -131,3 +131,37 @@ SELECT
 FROM Shipment
 WHERE ShipmentDate >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE))
 GROUP BY ShipmentType;
+
+CREATE TABLE Supplier (
+  SupplierID INT PRIMARY KEY IDENTITY,
+  SupplierName NVARCHAR(100) NOT NULL,
+  ContactPerson NVARCHAR(100),
+  Phone NVARCHAR(50),
+  Email NVARCHAR(100),
+  Address NVARCHAR(255)
+);
+
+INSERT INTO Supplier (SupplierName, ContactPerson, Phone, Email, Address)
+VALUES
+('PT Sumber Makmur', 'Budi Santoso', '08123456789', 'budi@sumbermakmur.co.id', 'Jl. Merdeka No. 10, Jakarta'),
+('CV Indo Logistic', 'Siti Aminah', '082112223333', 'siti@indologistik.com', 'Jl. Gatot Subroto No. 45, Bandung'),
+('Global Supply Ltd', 'John Doe', '+62 812 9999 8888', 'john.doe@globalsupply.com', 'Jl. Sudirman No. 20, Surabaya');
+
+select * from Supplier
+
+CREATE TABLE Cust (
+  CustID INT PRIMARY KEY IDENTITY,
+  CustName NVARCHAR(100) NOT NULL,
+  ContactPerson NVARCHAR(100),
+  Phone NVARCHAR(50),
+  Email NVARCHAR(100),
+  Address NVARCHAR(255)
+);
+
+INSERT INTO Cust (CustName, ContactPerson, Phone, Email, Address)
+VALUES
+('PT Nusantara Abadi', 'Andi Wijaya', '081234567890', 'andi@nusantara.com', 'Jl. Merdeka No. 123, Jakarta'),
+('CV Global Makmur', 'Budi Santoso', '082345678901', 'budi@globalmakmur.co.id', 'Jl. Sudirman No. 45, Bandung'),
+('PT Sejahtera Bersama', 'Clara Dewi', '083456789012', 'clara@sejahtera.com', 'Jl. Diponegoro No. 67, Surabaya'),
+('UD Maju Jaya', 'Dedi Pratama', '085678901234', 'dedi@majujaya.net', 'Jl. Ahmad Yani No. 89, Medan'),
+('PT IndoPrima Logistics', 'Eka Putri', '087654321098', 'eka@indoprima.co.id', 'Jl. Gatot Subroto No. 101, Semarang');
