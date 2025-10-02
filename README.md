@@ -23,13 +23,13 @@ This project demonstrates how to connect a backend to a relational database, han
 
 ## 📸 Demo
 ### Screenshots
-![Login Page Screenshot](./Assets/Login Page.png)  
-![Resgister Page Screenshot](./Assets/Register Page.png)  
-![Dashboard Page Screenshot](./Assets/Dashboard Page.png)  
-![Profile Page Screenshot](./Assets/Profile Page.png)  
-![Shipments Page Screenshot](./Assets/Shipments Page.png)  
-![Customers Page Screenshot](./Assets/Customers Page.png)  
-![Shipments Page Screenshot](./Assets/Suppliers Page.png)  
+![Login Page Screenshot](./Assets/Login_Page.png)  
+![Resgister Page Screenshot](./Assets/Register_Page.png)  
+![Dashboard Page Screenshot](./Assets/Dashboard_Page.png)  
+![Profile Page Screenshot](./Assets/Profile_Page.png)  
+![Shipments Page Screenshot](./Assets/Shipments_Page.png)  
+![Customers Page Screenshot](./Assets/Customers_Page.png)  
+![Shipments Page Screenshot](./Assets/Suppliers_Page.png)  
 
 ### Video/GIF
 [Download MP4](./Assets/LogisticsDemo.mp4)
